@@ -91,7 +91,7 @@ function __forwardWeiboOnce(content, mid, page_id, retcode) {
 	var xhr = new XMLHttpRequest();	
 	xhr.timeout = 3000;	
 	xhr.responseType = "text";	
-	xhr.open('POST', 'https://weibo.com/aj/v6/mblog/forward?ajwvr=6&domain=100505&__rnd=' + new Date().getTime(), true);	// 从1970年1月1日午夜开始经过的毫秒数
+	xhr.open('POST', 'https://weibo.com/aj/v6/mblog/forward?ajwvr=6&domain='+ page_id.substr(0,6) +'&__rnd=' + new Date().getTime(), true);	// 从1970年1月1日午夜开始经过的毫秒数
 	xhr.onload = function(e) {	
 		if (this.status == 200 || this.status == 304) {	
 			var data = JSON.parse(this.responseText);	
