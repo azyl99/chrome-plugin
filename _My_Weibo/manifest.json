@@ -1,0 +1,15 @@
+{
+	"name": "微博自动转发评论插件",
+	"description": "Automately comment and forward Weibo.",
+	"version": "1.0",
+	"permissions": [
+		"tabs", "https://weibo.com/*"
+	],
+	"browser_action": {
+		"default_title": "微博自动转发评论插件",
+		"default_icon": "icon.png",
+		"default_popup": "popup.html"
+	},
+	"manifest_version": 2
+}
+

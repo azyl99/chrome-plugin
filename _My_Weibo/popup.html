@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Set Page Color Popup</title>
+		<meta charset="utf-8">
+		<style>
+		body {
+			overflow: hidden;
+			margin: 0px;
+			padding: 0px;
+			background: white;
+		}
+
+		div:first-child {
+			margin-top: 0px;
+		}
+
+		div {
+			padding: 1px 3px;
+			font-family: sans-serif;
+			font-size: 0.8em;
+			width: 200px;
+			margin-top: 1px;
+			background: #efefef;
+			border: 1px solid;
+		}
+		div.list {
+			cursor: pointer;
+			text-align: center;
+		}
+		/* 鼠标悬浮hover到div元素上面的时候，div背景会变灰色 */
+		div.list:hover {
+			background: #ddd;
+		}
+		input {
+			width: 100px;
+		}
+		input#content {
+			width:130px;
+		}
+		</style>
+		<script src="inject.js"></script>
+		<script src="popup.js"></script>
+	</head>
+	<body>
+		<div>评论内容：<input type="text" id="content" value="default" /> <br />
+		重复次数：&nbsp;<input type="text" id="repeat_counts" class="my_input" value="3" />&nbsp;次<br />
+		时间间隔：&nbsp;<input type="text" id="repeat_interval" class="my_input" value="1000" />&nbsp;毫秒
+		</div>
+		<div class="list">评论微博</div>
+		<div class="list">转发微博</div>
+		<div class="list">回复评论</div>
+	</body>
+</html>
+
+
