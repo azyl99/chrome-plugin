@@ -18,12 +18,12 @@ String.prototype.format = function() {
 function initInjectFuntions() {
 	// 把这些脚本从插件的页面注入到微博页面
 	chrome.tabs.executeScript(null, {code:[
-		__getInformation_homePage.toString(),
+		__getBaseInformation_singleWeiboPage.toString(), 
+		__getInformation_singleWeiboPage.toString(), 
 		__commentWeiboOnce.toString(),
 		__commentWeibo.toString(),
 		__forwardWeiboOnce.toString(),
 		__forwardWeibo.toString(),
-		__getInformation_singleWeiboPage.toString(), 
 		__replyWeiboOnce.toString(),
 		__replyWeibo.toString(),
 	].join(';')});
@@ -53,8 +53,8 @@ console.log('interval', '{interval}');\
 function commentWeibo() {
 	getInput();
 	chrome.tabs.executeScript(null, {code: "\
-__getInformation_homePage();\
-__commentWeibo('{content}', {counts}, {interval}, microblog_id, uid_sender, page_id);\
+__getBaseInformation_singleWeiboPage();\
+__commentWeibo('{content}', {counts}, {interval}, mid, uid_sender, page_id);\
 	".format(dict)});
 	window.close();
 }
@@ -62,8 +62,8 @@ __commentWeibo('{content}', {counts}, {interval}, microblog_id, uid_sender, page
 function forwardWeibo() {
 	getInput();
 	chrome.tabs.executeScript(null, {code: "\
-__getInformation_homePage();\
-__forwardWeibo('{content}', {counts}, {interval}, microblog_id, page_id);\
+__getBaseInformation_singleWeiboPage();\
+__forwardWeibo('{content}', {counts}, {interval}, mid, page_id);\
 	".format(dict)});
 	window.close();
 }

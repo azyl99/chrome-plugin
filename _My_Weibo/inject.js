@@ -1,25 +1,28 @@
 // inject 函数里不能出现双引号
-function __getInformation_homePage() {
-	var page_links = document.querySelectorAll('a.tab_link');
-	if (page_links.length == 0) {
-		alert('请确保你现在访问的是某个人的微博主页')
-		return
+
+function __getBaseInformation_singleWeiboPage() {
+	if (document.querySelectorAll('a.tab_link').length != 0) {
+		alert('请确保你在单条微博的界面！')
+		return false; 
 	}
-	var link = page_links[0].getAttribute('href');
-	page_id = link.split('/')[2];
-	location_receiver = page_id.substr(0,6);
+	var weibo_link = document.querySelectorAll('div.WB_from')[0].firstElementChild;
+	mid = weibo_link.getAttribute('name');
+	page_id = weibo_link.getAttribute('href').split('/')[2].split('&')[0].split('_')[1]
 	uid_sender = document.querySelector('a.gn_name').getAttribute('href').split('/')[3];
-	//console.log('page_id', page_id);
-	//console.log('location_receiver', location_receiver);
-	//console.log('uid_sender', uid_sender);
-	
-	var currs = document.querySelectorAll('li.curr');
-	if (currs.length == 1) { alert('请展开至少一条微博'); }
-	else { 
-		var curr = currs[currs.length-1];/* 选择最后一条展开的微博 */
-		microblog_id = curr.querySelector('a').getAttribute('suda-uatrack').split(':')[1]; 
-	} 
+	return true
 }
+
+function __getInformation_singleWeiboPage() {
+	if (!__getBaseInformation_singleWeiboPage()) return false;
+	var currs = document.querySelectorAll('li.curr');
+	if (currs.length == 1) {
+		alert('请确保你打开了要回复的微博！')
+		return false;		
+	}
+	var comment_link = currs[1].firstElementChild.firstElementChild;// 被回复的评论链接
+	comment_data_arr = comment_link.getAttribute('action-data').split('&')
+}
+
 
 function __commentWeiboOnce(content, mid, uid, page_id, retcode) {	
 	var Data = new FormData();
@@ -115,25 +118,6 @@ function __forwardWeibo(content, counts, t, mid, page_id) {
 	}, t);// 毫秒
 }
 
-
-function __getInformation_singleWeiboPage() {
-	if (document.querySelectorAll('a.tab_link').length != 0) {
-		alert('请确保你在单条微博的界面！')
-		return;
-	}
-	var weibo_link = document.querySelectorAll('div.WB_from')[0].firstElementChild;
-	mid = weibo_link.getAttribute('name');
-	page_id = weibo_link.getAttribute('href').split('/')[2].split('&')[0].split('_')[1]
-	uid_sender = document.querySelector('a.gn_name').getAttribute('href').split('/')[3];
-	var currs = document.querySelectorAll('li.curr');
-	if (currs.length == 1) {
-		alert('请确保你打开了要评论的微博！')
-		return;		
-	}
-	var comment_link = currs[1].firstElementChild.firstElementChild;// 被回复的评论链接
-	comment_data_arr = comment_link.getAttribute('action-data').split('&')
-}
-
 // 回复根评论
 function __replyWeiboOnce(content, mid, uid, page_id, comment_data_arr,   retcode) {	
 	var Data = new FormData();	
@@ -185,4 +169,28 @@ function __replyWeibo(content, counts, t, mid, uid, page_id, comment_data_arr) {
 	}, t);// 毫秒
 }
 
+
+//--------------deprecated---------------
+
+function __getInformation_homePage() {
+	var page_links = document.querySelectorAll('a.tab_link');
+	if (page_links.length == 0) {
+		alert('请确保你现在访问的是某个人的微博主页')
+		return
+	}
+	var link = page_links[0].getAttribute('href');
+	page_id = link.split('/')[2];
+	location_receiver = page_id.substr(0,6);
+	uid_sender = document.querySelector('a.gn_name').getAttribute('href').split('/')[3];
+	//console.log('page_id', page_id);
+	//console.log('location_receiver', location_receiver);
+	//console.log('uid_sender', uid_sender);
+	
+	var currs = document.querySelectorAll('li.curr');
+	if (currs.length == 1) { alert('请展开至少一条微博'); }
+	else { 
+		var curr = currs[currs.length-1];/* 选择最后一条展开的微博 */
+		microblog_id = curr.querySelector('a').getAttribute('suda-uatrack').split(':')[1]; 
+	} 
+}
 
