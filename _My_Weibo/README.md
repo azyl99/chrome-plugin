@@ -1,3 +1,7 @@
+备注：第一次写插件，很多东西都是现学现用的，所以代码和注释看起来比较凌乱。。。
+
+---
+
 ## 微博自动转发评论回复插件
 
  - 仅支持chrome浏览器，其他浏览器没有测试过
@@ -17,3 +21,6 @@
 评论截图（间隔时间为1毫秒，微博服务器的处理顺序不严格对应评论发出去的顺序）：
 
 ![](https://raw.githubusercontent.com/wiki/azyl99/chrome-plugin/images/excample.png)
+
+--- 
+具体使用方法见[wiki](https://github.com/azyl99/chrome-plugin/wiki)
