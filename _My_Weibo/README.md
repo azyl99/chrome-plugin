@@ -11,7 +11,9 @@
 ---
 
 插件截图：
+
 ![](https://github.com/azyl99/chrome-plugin/blob/master/_My_Weibo/md_img/1.png)
 
 评论截图（间隔时间为1毫秒，微博服务器的处理顺序不严格对应评论发出去的顺序）：
+
 ![](https://github.com/azyl99/chrome-plugin/blob/master/_My_Weibo/md_img/2.png)
