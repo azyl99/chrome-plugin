@@ -1,0 +1,16 @@
+{
+  "name": "英语听力播放图标浮动插件",
+  "manifest_version": 2,
+  "version": "1.0",
+  "description": "",
+  "browser_action": {
+    "default_icon": "gakki.jpeg",
+    "这是我的注释": "图标好像不管用呢！是不是一定要png..."
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://www.tingroom.com/lesson/yingyutinglirumen/*"],
+      "js": ["script.js"]
+    }
+  ]
+}
