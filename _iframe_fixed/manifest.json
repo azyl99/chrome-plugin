@@ -9,7 +9,7 @@
   "content_scripts": [
     {
       "matches": ["http://www.tingroom.com/lesson/yingyutinglirumen/*"],
-      "js": ["script.js"]
+      "js": ["shortcut.js", "script.js"]
     }
   ]
 }

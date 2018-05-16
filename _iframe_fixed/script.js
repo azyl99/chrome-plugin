@@ -14,3 +14,10 @@ body.appendChild(audio)
 
 
 audio.currentTime = 15;// 设置播放起点为15秒
+shortcut.add("space",function() {
+	if (audio.paused){
+		audio.play();
+	} else {
+		audio.pause();
+	}
+});
