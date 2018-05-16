@@ -22,10 +22,6 @@ shortcut.add("Space",function() {
 	}
 });
 
-shortcut.add("Left", function() {
-	audio.currentTime -= 3;
-	audio.currentTime = audio.currentTime < 0 ? 0 : audio.currentTime;
-});
 
 shortcut.add("Left", function() {
 	audio.currentTime -= 3;
