@@ -14,10 +14,29 @@ body.appendChild(audio)
 
 
 audio.currentTime = 15;// 设置播放起点为15秒
-shortcut.add("space",function() {
+shortcut.add("Space",function() {
 	if (audio.paused){
 		audio.play();
 	} else {
 		audio.pause();
+	}
+});
+
+shortcut.add("Left", function() {
+	audio.currentTime -= 3;
+	audio.currentTime = audio.currentTime < 0 ? 0 : audio.currentTime;
+});
+
+shortcut.add("Left", function() {
+	audio.currentTime -= 3;
+	if (audio.currentTime < 0) {
+		audio.currentTime = 0
+	}
+});
+
+shortcut.add("Right", function() {
+	audio.currentTime += 3;
+	if (audio.currentTime > audio.duration) {
+		audio.currentTime = audio.duration
 	}
 });
