@@ -4,8 +4,7 @@
   "version": "1.0",
   "description": "",
   "browser_action": {
-    "default_icon": "gakki.jpeg",
-    "这是我的注释": "图标好像不管用呢！是不是一定要png..."
+    "default_icon": "icon.png"
   },
   "content_scripts": [
     {
